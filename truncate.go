@@ -2,6 +2,9 @@ package format
 
 // Truncate limits text by Unicode code points, including a trailing ellipsis.
 func Truncate(s string, n int) string {
+	if n <= 0 {
+		return ""
+	}
 	if len([]rune(s)) <= n {
 		return s
 	}
